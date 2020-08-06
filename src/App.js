@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './components/card';
 import './App.css';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function App() {
   const [types, setTypes] = useState(["Grass", "Poison", "Fire", "Water", "Flying", "Bug", "Normal"]);
@@ -486,7 +486,7 @@ function App() {
                 return typeSelected === "Todos" ?  true :
                 pokemon.type.includes(typeSelected) }).filter((pokemon) => {
                 return pokemon.name.english === ""
-                    ? true
+                    ? true // Si no esta vacio pues entonces muestra lo que esta buscando el usuario
                     : pokemon.name.english.includes(search);
               }).map(pokemon => {
                 return (<Card name={pokemon.name.english}
