@@ -2,8 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## version 0.9 
 
-Jueves 2 de Julio de 2020.
+Agosto 6  de 2020.
 
-### `app tareas`
+### `Pokedex App`
 
 En desarrollo.<br />
