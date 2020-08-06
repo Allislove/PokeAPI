@@ -31,14 +31,33 @@
 .card{
   display: flex;
   flex-direction: column;
-  background-color: #7eb2f9;
   justify-content: center;
   align-items: center;
-  border-radius: 4px;
-  padding: 10px;
   flex-wrap: wrap;
+  background-color: rgba(255, 214, 214, 0.63);
+  border-radius: 12px 4px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+  transition: all 0.25s;
+  margin: 10px;
+  padding: 20px;
+  /*text-align: center;*/
 }
 
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 60%;
+  /*width: 120px;*/
+  /*height: 120px;*/
+  text-align: center;
+  background-size: cover;
+  max-width: 100%;
+}
 .Normal {
   background-color: #BFE6BA;
 }
@@ -64,4 +83,8 @@
 .Bug {
   background-color: #D3959B;
 
+}
+
+ul li {
+  list-style: none;
 }

@@ -8,7 +8,7 @@ export default function Card(props){
 
             <h2>{props.name}</h2>
             <img src={props.image} alt="pokemon" />
-            <div>
+            <div className="pokemon-info">
                 <ul>
                     <li>Hp: {props.base.HP}</li>
                     <li>Ataque: {props.base.Attack}</li>

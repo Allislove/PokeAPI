@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './components/card';
 import './App.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function App() {
   const [types, setTypes] = useState(["Grass", "Poison", "Fire", "Water", "Flying", "Bug", "Normal"]);
@@ -437,11 +437,19 @@ function App() {
       }
     }])
 
+
   const [typeSelected, setTypeSelected] = useState("Todos");
 
   const handleTypeSelect = (event) => {
     setTypeSelected(event.target.value);
   }
+
+  const [search, setSearch] = useState("");
+
+  const handleChange = event => {
+    setSearch(event.target.value);
+  };
+
 
   return (
       <div className="container">
@@ -462,16 +470,35 @@ function App() {
         </div>
         <div className="filters">
           <form>
-            <input type="text" placeholder="Buscar pokemón" />
+            <input type="text"
+                   placeholder="Buscar pokemón"
+                   value={search}
+                   onChange={handleChange}
+                    />
           </form>
+
         </div>
         <div className="App">
-        {/*  mapeo y tambien hago un filtro, para los pokemone*/}
+
+          {/*  mapeo y tambien hago un filtro, para los pokemone*/}
           {
-            pokemon.filter( pokemon => { return typeSelected === "Todos" ?  true :  pokemon.type.includes(typeSelected) } ).map(pokemon => {
-              return (<Card name={pokemon.name.english} image={pokemon.sprite} base={pokemon.base} types={pokemon.type} />)
+              pokemon.filter( pokemon => {
+                return typeSelected === "Todos" ?  true :
+                pokemon.type.includes(typeSelected) }).filter((pokemon) => {
+                return pokemon.name.english === ""
+                    ? true
+                    : pokemon.name.english.includes(search);
+              }).map(pokemon => {
+                return (<Card name={pokemon.name.english}
+                              image={pokemon.sprite} base={pokemon.base}
+                              types={pokemon.type} />)
             })
+
           }
+
+
+
+
 
         </div>
       </div>
