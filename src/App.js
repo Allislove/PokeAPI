@@ -487,7 +487,9 @@ function App() {
                 pokemon.type.includes(typeSelected) }).filter((pokemon) => {
                 return pokemon.name.english === ""
                     ? true // Si no esta vacio pues entonces muestra lo que esta buscando el usuario
-                    : pokemon.name.english.toLowerCase().includes(search);
+                    : pokemon.name.english.toLowerCase().includes(search.toLocaleLowerCase());
+              //  Y Ademas, buscame tal cual el nombre, no importa si la busqueda es en mayus o
+                //  minuscula
               }).map(pokemon => {
                 return (<Card name={pokemon.name.english}
                               image={pokemon.sprite} base={pokemon.base}
